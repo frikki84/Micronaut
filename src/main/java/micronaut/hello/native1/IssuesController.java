@@ -17,4 +17,9 @@ public class IssuesController {
         }};
     }
 
+    @Get
+    public String startPage() {
+        return "Start page";
+    }
+
 }
