@@ -1,0 +1,43 @@
+From 0374570b316f6a1d91c884f6ed06fa2acd9c4eb6 Mon Sep 17 00:00:00 2001
+From: Bitbucket Pipeline <admin@etherisk.com>
+Date: Tue, 5 May 2020 16:02:21 +0300
+Subject: [PATCH 1/5] Correct docs
+
+---
+ README.md | 18 +++++++++++++++++-
+ gradlew   |  0
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+ mode change 100644 => 100755 gradlew
+
+diff --git a/README.md b/README.md
+index 9b9553f..df40b6a 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,20 @@
+-To run the project it will require to execute next commands 
++## Micronaut Hello Project
++
++### Build application
++
++*There are required Java 1.8 to be installed!*
++
++Windows:
++```bash
++gradlew clean build
++```
++
++Linux / MacOS:
++```bash
++./gradlew clean build
++```
++
++### Run the application
+ 
+ ```bash
+ docker build . -t micronaut-hello --no-cache -m 16g
+diff --git a/gradlew b/gradlew
+old mode 100644
+new mode 100755
+-- 
+2.31.1.windows.1
+

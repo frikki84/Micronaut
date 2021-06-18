@@ -1,0 +1,55 @@
+From 34cf8c484bd32dffb8a7348bfc0b0238ac2f47a6 Mon Sep 17 00:00:00 2001
+From: Bitbucket Pipeline <admin@etherisk.com>
+Date: Wed, 6 May 2020 16:29:07 +0300
+Subject: [PATCH 3/5] Upgrade JAva version to 11
+
+---
+ Dockerfile        | 4 ++--
+ README.md         | 3 +++
+ gradle.properties | 2 +-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/Dockerfile b/Dockerfile
+index b6c77e0..2276807 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -1,11 +1,11 @@
+-FROM oracle/graalvm-ce:19.2.0 as graalvm
++FROM oracle/graalvm-ce:20.0.0-java11 as graalvm
+ COPY . /home/app/micronaut-hello-native1
+ WORKDIR /home/app/micronaut-hello-native1
+ ENV JAVA_OPTIONS "-Xms1g -Xmx16g"
+ RUN gu install native-image
+ RUN native-image -J-Xmx4g --no-server  -cp build/libs/micronaut-hello-native1-0.1-all.jar
+ 
+-FROM frolvlad/alpine-glibc
++FROM muicoder/glibc
+ EXPOSE 8080
+ COPY --from=graalvm /home/app/micronaut-hello-native1 .
+ ENTRYPOINT ["./micronaut-hello-native1"]
+diff --git a/README.md b/README.md
+index c143a34..9c1779d 100644
+--- a/README.md
++++ b/README.md
+@@ -17,6 +17,9 @@ Linux / MacOS:
+ ### Run the application
+ 
+ ```bash
++# Docker routine
+ docker build . -t micronaut-hello --no-cache -m 16g
+ docker run -p 8080:8080  micronaut-hello:latest
+ ```
++
++_Ensure you run graalvm native build against relevant Java version_
+\ No newline at end of file
+diff --git a/gradle.properties b/gradle.properties
+index 970afb8..878d3ec 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -1 +1 @@
+-micronautVersion=1.2.2
+\ No newline at end of file
++micronautVersion=1.3.4
+-- 
+2.31.1.windows.1
+

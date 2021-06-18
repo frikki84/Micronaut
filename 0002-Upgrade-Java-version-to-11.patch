@@ -1,0 +1,25 @@
+From 8fe434de4089af81bdd08d8c6bc87cfdcf8ec9d9 Mon Sep 17 00:00:00 2001
+From: Bitbucket Pipeline <admin@etherisk.com>
+Date: Wed, 6 May 2020 16:28:10 +0300
+Subject: [PATCH 2/5] Upgrade Java version to 11
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index df40b6a..c143a34 100644
+--- a/README.md
++++ b/README.md
+@@ -2,7 +2,7 @@
+ 
+ ### Build application
+ 
+-*There are required Java 1.8 to be installed!*
++*There are required Java 11 to be installed!*
+ 
+ Windows:
+ ```bash
+-- 
+2.31.1.windows.1
+
